@@ -1,5 +1,6 @@
-# OctoPG
-PyGame extension for creating 8-bit-like games.
+![octopg_logo_big_black](https://cloud.githubusercontent.com/assets/2797696/11170197/30eba58a-8bcd-11e5-847d-18b9faa31bef.png)
+
+**PyGame extension for creating 8-bit-like games.**
 
 ## Documentation
 Documentation not written yet.
