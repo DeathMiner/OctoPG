@@ -1,13 +1,3 @@
-# OctoPG
-PyGame extension for creating 8-bit-like games.
-
-## Documentation
-Documentation not written yet.
-
-## How to start a project?
-You can start with this hello_world sample! (see `hello.py` file)
-
-```python
 # Import OctoPG
 import octopg
 
@@ -56,7 +46,3 @@ while True:
 
     # Update screen
     octopg.graphics.flip()
-```
-
-## Configuration
-Either edit the `config.json` (it's my personal config) or use the `hello.py` setup

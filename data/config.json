@@ -1,0 +1,63 @@
+{
+    "audio": {},
+    "controls": {
+        "p1": {
+            "controller": 0,
+            "joystick": {
+                "a": "a",
+                "b": "b",
+                "down": "dpad_down",
+                "left": "dpad_left",
+                "right": "dpad_right",
+                "select": "back",
+                "start": "start",
+                "up": "dpad_up"
+            },
+            "keyboard": {
+                "a": 59,
+                "b": 107,
+                "down": 115,
+                "left": 97,
+                "right": 100,
+                "select": 103,
+                "start": 104,
+                "up": 119
+            }
+        },
+        "p2": {
+            "controller": -1,
+            "joystick": {
+                "a": "a",
+                "b": "b",
+                "down": "dpad_down",
+                "left": "dpad_left",
+                "right": "dpad_right",
+                "select": "back",
+                "start": "start",
+                "up": "dpad_up"
+            },
+            "keyboard": {
+                "a": 257,
+                "b": 256,
+                "down": 274,
+                "left": 276,
+                "right": 275,
+                "select": 270,
+                "start": 271,
+                "up": 273
+            }
+        }
+    },
+    "debug": true,
+    "graphics": {
+        "aspect_ratio": "4/3",
+        "fps_blocker": 60,
+        "fullscreen": false,
+        "post_effects": 3,
+        "resolution": [
+            800,
+            600
+        ],
+        "tv": false
+    }
+}
