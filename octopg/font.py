@@ -44,7 +44,7 @@ def render(text, color, background=False, alternateFont=False):
 """
 RasterFont
 
-Renders text from raster font sprites
+Renders text from monochromatic raster font sprites
 """
 class RasterFont():
 
@@ -78,6 +78,10 @@ class RasterFont():
 		# Calculate the amount of cells on each line of the sprite
 		self.per_line = ( self.sprite_size[0]-self.chr_offset ) / (self.chr_w+self.chr_offset)
 
+		# Set default color
+		self.current_color = None
+		self.set_color([255, 255, 255])
+
 	"""
 	RasterFont.render()
 
@@ -99,6 +103,10 @@ class RasterFont():
 			surf.fill(background_color)
 
 
+		# Set the color of the font
+		self.set_color(color)
+
+
 		# Used to track current progress
 		count = 0
 
@@ -113,6 +121,11 @@ class RasterFont():
 
 			# Create a letter Surface to crop the sprite
 			letter = pg.Surface([self.chr_w, self.chr_h])
+
+			# Get the opposite color from the font color for a proper letter transparency on the background
+			inverted_color = [(255 - val) for val in color]
+			letter.fill(inverted_color)
+			letter.set_colorkey(inverted_color)
 
 			# The ASCII code is found
 			if number != 0:
@@ -142,6 +155,33 @@ class RasterFont():
 
 		# Give back the rendered text
 		return surf
+
+	"""
+	RasterFont.set_color()
+
+	Sets the color of the font by modifing the sprite's colors
+
+	@param color (list) The color to set
+	@return (void)
+	"""
+	def set_color(self, color):
+
+		# Don't change color if it was already changed
+		if self.current_color != color:
+
+			# Save the fact that we changed the color
+			self.current_color = color
+
+			# Get the pixel array from the sprite
+			arr = pg.surfarray.pixels3d(self.sprite)
+
+			# Set the selected color on all pixels
+			arr[:,:,0] = color[0]
+			arr[:,:,1] = color[1]
+			arr[:,:,2] = color[2]
+
+			# Delete array
+			del arr
 
 # TODO:
 # Cleaner code
