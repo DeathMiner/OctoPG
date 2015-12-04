@@ -1,7 +1,7 @@
 #   ___     _       ___  ___ _   |  
 #  / _ \ __| |_ ___| _ \/ __| |  |  Create 8-bit-like games!
 # | (_) / _|  _/ _ \  _/ (_ |_|  |  Author: Death_Miner
-#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.1.0
+#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.2.0
 #                                |  
 #
 # @ octopg/color.py => 8-bit color listing file

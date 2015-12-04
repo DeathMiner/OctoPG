@@ -1,7 +1,7 @@
 #   ___     _       ___  ___ _   |  
 #  / _ \ __| |_ ___| _ \/ __| |  |  Create 8-bit-like games!
 # | (_) / _|  _/ _ \  _/ (_ |_|  |  Author: Death_Miner
-#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.1.0
+#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.2.0
 #                                |  
 #
 # @ octopg/graphics.py => The graphical octopg overlay used by OctoPG
@@ -88,8 +88,13 @@ def init():
 	display_info = pg.display.Info()
 
 	# Delete all resolutions higher than current screen to avoid errors (We do not support DSR)
-	for key in RESOLUTIONS.keys():
+	aspect_ratios = [key for key in RESOLUTIONS.keys()]
+	for key in aspect_ratios:
 		RESOLUTIONS[key] = [val for val in RESOLUTIONS[key] if not val[0] > display_info.current_w or not val[1] > display_info.current_h]
+
+		# Delete aspect ratio if no resolutions available
+		if len(RESOLUTIONS[key]) == 0:
+			del RESOLUTIONS[key]
 
 	# Create screen surface
 	screen = pg.Surface(screen_size)
