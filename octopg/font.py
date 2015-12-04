@@ -130,8 +130,8 @@ class RasterFont():
 			# The ASCII code is found
 			if number != 0:
 
-				# Get the cell x (skip control chars 0->32)
-				x = number - 33
+				# Get the cell x
+				x = number
 
 				# Calculate the cell y according to amount of cells on a line
 				y = (x - (x % self.per_line)) / self.per_line
