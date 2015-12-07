@@ -121,8 +121,6 @@ BTN_STATES = {
 	}
 }
 
-print(BTN_STATES)
-
 x360_cntrl_requirements = {
 	"axes": 5,
 	"buttons": 10,
