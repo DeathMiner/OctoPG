@@ -134,7 +134,7 @@ class RasterFont():
 				x = number
 
 				# Calculate the cell y according to amount of cells on a line
-				y = (x - (x % self.per_line)) / self.per_line
+				y = x // self.per_line
 
 				# Recalculate the cell x
 				x = x % self.per_line
