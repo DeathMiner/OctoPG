@@ -25,18 +25,19 @@ Loads the required files for the octopg engine
 def init():
 
 	# We load the main config file
-	load_file("config", "data/config.json")
+	load_file("config", "data/config.json", "data/config.default.json")
 
 
 """
 load_file()
 Loads a data file and decodes it
 
-@param name (str) The name to use for this file
-@param path (str) Path of the data file
+@param name         (str) The name to use for this file
+@param path         (str) Path of the data file
+@param default_path (str) Path of the default data file
 @return void
 """
-def load_file(name, path):
+def load_file(name, path, default_path = None):
 	global files, d
 
 	# Do some debug for the developers
@@ -47,11 +48,14 @@ def load_file(name, path):
 	# Load only the file once
 	if name not in files:
 
-		# Generate the pathn of the default data file.
-		# It should be (original basename)/(original filename).default.(original extension)
-		default_file = os.path.basename(path).split(".")
-		default_file.insert(-1, "default")
-		default_path = os.path.dirname(path) + "/" + ".".join(default_file)
+		# Get the path of the default file
+		if default_path == None:
+
+			# Generate the path of the default data file.
+			# It should be (original basename)/(original filename).default.(original extension)
+			default_file = os.path.basename(path).split(".")
+			default_file.insert(-1, "default")
+			default_path = os.path.dirname(path) + "/" + ".".join(default_file)
 		
 
 		# Check if the config file exists
