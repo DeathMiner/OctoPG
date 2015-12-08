@@ -7,6 +7,7 @@
 # @ octopg/font.py => Font utilities
 
 import pygame as pg
+import octopg.util
 
 default_font = False
 
@@ -119,14 +120,6 @@ class RasterFont():
 			except:
 				number = 0
 
-			# Create a letter Surface to crop the sprite
-			letter = pg.Surface([self.chr_w, self.chr_h])
-
-			# Get the opposite color from the font color for a proper letter transparency on the background
-			inverted_color = [(255 - val) for val in color]
-			letter.fill(inverted_color)
-			letter.set_colorkey(inverted_color)
-
 			# The ASCII code is found
 			if number != 0:
 
@@ -141,10 +134,11 @@ class RasterFont():
 
 
 				# Crop the sprite at the calculated positions from cell x, y
-				letter.blit(self.sprite, [-self.chr_offset-x*(self.chr_w+self.chr_offset), -self.chr_offset-y*(self.chr_h+self.chr_offset)])
+				letter = octopg.util.crop_surf(self.sprite, [self.chr_offset+x*(self.chr_w+self.chr_offset), self.chr_offset+y*(self.chr_h+self.chr_offset), self.chr_w, self.chr_h])
 			
 			# The ASCII code is not found, set a blank char
 			else:
+				letter = pg.Surface([self.chr_w, self.chr_h])
 				letter.fill(color)
 
 			# Add letter to main surface

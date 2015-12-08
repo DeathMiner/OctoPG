@@ -45,10 +45,9 @@ def text_render(text, color, background=False):
 	return surf
 
 # Fake "rect", but following [left, right, width, height]
-def gen_sprite(image, rect):
+def crop_surf(image, rect):
 	surf = pg.Surface([rect[2], rect[3]])
-	surf.fill([0, 255, 0])
-	surf.set_colorkey([0, 255, 0])
+	surf = surf.convert_alpha()
 	surf.blit(image, [-rect[0], -rect[1]])
 	return surf
 

@@ -1190,7 +1190,7 @@ def loop(onclose):
 			# KEY NAME
 			name = e.CONFIG['p'+item['player']]['joystick'][item['button']]
 			if name in x360_cntrl_buttons:
-				sprite = octopg.util.gen_sprite(i['x360_cntrl_buttons'], x360_cntrl_buttons[name])
+				sprite = octopg.util.crop_surf(i['x360_cntrl_buttons'], x360_cntrl_buttons[name])
 				pos = [236-x360_cntrl_buttons[name][2], offset]
 			else:
 				sprite = font.render("[?]", [255, 255, 255], [0, 0, 0])
