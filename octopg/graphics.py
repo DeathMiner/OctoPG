@@ -192,4 +192,3 @@ def apply_config(conf):
 
 # TODO:
 # post effects
-# non-buggy fullscreen
