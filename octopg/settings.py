@@ -1,7 +1,7 @@
 #   ___     _       ___  ___ _   |  
 #  / _ \ __| |_ ___| _ \/ __| |  |  Create 8-bit-like games!
 # | (_) / _|  _/ _ \  _/ (_ |_|  |  Author: Death_Miner
-#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.2.0
+#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.3.0
 #                                |  
 #
 # @ octopg/settings.py => Fully featured settings for OctoPG games!
@@ -1190,7 +1190,7 @@ def loop(onclose):
 			# KEY NAME
 			name = e.CONFIG['p'+item['player']]['joystick'][item['button']]
 			if name in x360_cntrl_buttons:
-				sprite = octopg.util.gen_sprite(i['x360_cntrl_buttons'], x360_cntrl_buttons[name])
+				sprite = octopg.util.crop_surf(i['x360_cntrl_buttons'], x360_cntrl_buttons[name])
 				pos = [236-x360_cntrl_buttons[name][2], offset]
 			else:
 				sprite = font.render("[?]", [255, 255, 255], [0, 0, 0])

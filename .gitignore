@@ -258,3 +258,4 @@ __APPS
 assets/sprites/main_menu
 assets/sounds/main_menu
 games/
+data/config.json

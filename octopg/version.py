@@ -1,13 +1,13 @@
 #   ___     _       ___  ___ _   |  
 #  / _ \ __| |_ ___| _ \/ __| |  |  Create 8-bit-like games!
 # | (_) / _|  _/ _ \  _/ (_ |_|  |  Author: Death_Miner
-#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.2.0
+#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.3.0
 #                                |  
 #
 # @ octopg/version.py => Version of this octopg!
 
-octopg_ver = "0.2.0"
-octopg_vernum = (0, 2, 0)
+octopg_ver = "0.3.0"
+octopg_vernum = (0, 3, 0)
 
 def vernum_to_ver(vernum):
 	return ".".join(map(str, vernum))

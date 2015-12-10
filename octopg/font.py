@@ -1,12 +1,13 @@
 #   ___     _       ___  ___ _   |  
 #  / _ \ __| |_ ___| _ \/ __| |  |  Create 8-bit-like games!
 # | (_) / _|  _/ _ \  _/ (_ |_|  |  Author: Death_Miner
-#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.2.0
+#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.3.0
 #                                |  
 #
 # @ octopg/font.py => Font utilities
 
 import pygame as pg
+import octopg.util
 
 default_font = False
 
@@ -119,32 +120,25 @@ class RasterFont():
 			except:
 				number = 0
 
-			# Create a letter Surface to crop the sprite
-			letter = pg.Surface([self.chr_w, self.chr_h])
-
-			# Get the opposite color from the font color for a proper letter transparency on the background
-			inverted_color = [(255 - val) for val in color]
-			letter.fill(inverted_color)
-			letter.set_colorkey(inverted_color)
-
 			# The ASCII code is found
 			if number != 0:
 
-				# Get the cell x (skip control chars 0->32)
-				x = number - 33
+				# Get the cell x
+				x = number
 
 				# Calculate the cell y according to amount of cells on a line
-				y = (x - (x % self.per_line)) / self.per_line
+				y = x // self.per_line
 
 				# Recalculate the cell x
 				x = x % self.per_line
 
 
 				# Crop the sprite at the calculated positions from cell x, y
-				letter.blit(self.sprite, [-self.chr_offset-x*(self.chr_w+self.chr_offset), -self.chr_offset-y*(self.chr_h+self.chr_offset)])
+				letter = octopg.util.crop_surf(self.sprite, [self.chr_offset+x*(self.chr_w+self.chr_offset), self.chr_offset+y*(self.chr_h+self.chr_offset), self.chr_w, self.chr_h])
 			
 			# The ASCII code is not found, set a blank char
 			else:
+				letter = pg.Surface([self.chr_w, self.chr_h])
 				letter.fill(color)
 
 			# Add letter to main surface

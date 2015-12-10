@@ -2,7 +2,7 @@
     "audio": {},
     "controls": {
         "p1": {
-            "controller": 0,
+            "controller": -1,
             "joystick": {
                 "a": "a",
                 "b": "b",
@@ -48,7 +48,7 @@
             }
         }
     },
-    "debug": true,
+    "debug": false,
     "graphics": {
         "aspect_ratio": "4/3",
         "fps_blocker": 60,

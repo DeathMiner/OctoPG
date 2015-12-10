@@ -1,7 +1,7 @@
 #   ___     _       ___  ___ _   |  
 #  / _ \ __| |_ ___| _ \/ __| |  |  Create 8-bit-like games!
 # | (_) / _|  _/ _ \  _/ (_ |_|  |  Author: Death_Miner
-#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.2.0
+#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.3.0
 #                                |  
 #
 # @ octopg/events.py => This file catches events like buttons presses
@@ -120,8 +120,6 @@ BTN_STATES = {
 		P2_BTN_A: False
 	}
 }
-
-print(BTN_STATES)
 
 x360_cntrl_requirements = {
 	"axes": 5,
