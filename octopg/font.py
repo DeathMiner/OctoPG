@@ -97,7 +97,7 @@ class RasterFont():
 	def render(self, text, color = [255, 255, 255], background_color = None):
 
 		# Create surface by calculating the width & height according to char count
-		surf = pg.Surface([len(text)*(self.chr_w+self.chr_spacing), self.chr_h])
+		surf = octopg.util.transparent_surf([len(text)*(self.chr_w+self.chr_spacing), self.chr_h])
 
 		# Set the background color if provided
 		if background_color != None:
