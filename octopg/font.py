@@ -177,5 +177,78 @@ class RasterFont():
 			# Delete array
 			del arr
 
+	"""
+	RasterFont.wrap()
+
+	Wraps text in a given max width
+
+	@param text             (str)  The text to render
+	@param max_width        (int)  The max width used to wrap the text
+	@param color            (list) [DEFAULT = white] The color of the font
+	@param background_color (list) [DEFAULT = None] The color of the background, if no color the background will be transparent
+
+	@return (pygame.Surface)
+	"""
+	def wrap(self, text, max_width, color = [255, 255, 255], background_color = None):
+
+		# Split the text by lines first
+		lines = text.split("\n")
+		wrapped = []
+
+
+		# For each line we will wrap the text
+		for line in lines:
+
+			# Calculate to total length of the line
+			length = len(line)*(self.chr_w+self.chr_spacing)-self.chr_spacing
+
+
+			# The line is too long
+			if length > max_width:
+
+				# Split it by words
+				words = line.split(" ")
+
+
+				# Used in the next loop
+				current_width = 0
+				last_index = 0
+
+				# Get each word & calculate the cumulated width
+				for index2, word in enumerate(words):
+					
+					# Calculate cumulated width
+					current_width += (len(word)+1)*(self.chr_w+self.chr_spacing)
+					
+					# Too long
+					if current_width > max_width:
+
+						# Add a new line containing all previous words
+						wrapped.append(" ".join(words[last_index:index2]))
+
+						# Reset these vars
+						current_width = 0
+						last_index = index2
+
+
+				# Add the last line with remaining words
+				wrapped.append(" ".join(words[last_index:index2+1]))
+
+
+			# The line is short, add it to the list
+			else:
+				wrapped.append(line)
+
+
+		# Create a destination surface with the right height
+		surf = octopg.util.transparent_surf([max_width, len(wrapped)*(self.chr_h+self.chr_spacing)-self.chr_spacing])
+
+		# Render each line & add it to destination surface
+		for index, line in enumerate(wrapped):
+			surf.blit(self.render(line, color, background_color), [0, index*(self.chr_h+self.chr_spacing)])
+
+		# Return the wrapped text
+		return surf
+
 # TODO:
 # Cleaner code
