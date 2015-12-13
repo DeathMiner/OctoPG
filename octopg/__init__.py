@@ -1,7 +1,7 @@
 #   ___     _       ___  ___ _   |  
 #  / _ \ __| |_ ___| _ \/ __| |  |  Create 8-bit-like games!
 # | (_) / _|  _/ _ \  _/ (_ |_|  |  Author: Death_Miner
-#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.3.0
+#  \___/\__|\__\___/_|  \___(_)  |  Version: 0.4.0
 #                                |  
 #
 # @ octopg/__init__.py => Run this file to start OctoPG!
@@ -54,7 +54,7 @@ octopg.graphics.flip()
 
 print("- Loading external libraries...") # Load all used modules in the memory to avoid freezes ingame when fetching the modules
 # Generic
-import time, random, math, numpy, sys, json, os, webbrowser, copy
+import time, random, math, numpy, sys, json, os, webbrowser, copy, urllib
 
 # OctoPG resources
 import octopg.res # Get the resource list of the main menu
