@@ -54,7 +54,7 @@ octopg.graphics.flip()
 
 print("- Loading external libraries...") # Load all used modules in the memory to avoid freezes ingame when fetching the modules
 # Generic
-import time, random, math, numpy, sys, json, os, webbrowser, copy
+import time, random, math, numpy, sys, json, os, webbrowser, copy, urllib
 
 # OctoPG resources
 import octopg.res # Get the resource list of the main menu
